@@ -1,18 +1,9 @@
-# Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
-# More GitHub Actions for Azure: https://github.com/Azure/actions
-
-# File: .github/workflows/workflow.yml
 name: JavaScript CI
 on:
   push:
     branches:
       - main
   workflow_dispatch:
-
-env:
-  AZURE_WEBAPP_NAME: my-app-name   # set this to your application's name
-  AZURE_WEBAPP_PACKAGE_PATH: 'my-app-path'      # set this to the path to your web app project, defaults to the repository root
-  NODE_VERSION: '14.x'                # set this to the node version to use
 
 jobs:
   build-and-deploy:
@@ -33,7 +24,7 @@ jobs:
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
       with: 
-      app-name: 'acs-handson'
+        app-name: 'acs-handson'
         slot-name: 'Production'
         publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_FBF1EF16A62A4163B683A36677A5BD1C }}
         package: .
